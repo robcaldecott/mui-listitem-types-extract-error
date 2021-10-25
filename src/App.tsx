@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { List } from "@mui/material";
+import { StyledListItem } from "./StyledListItem";
+import { AltListItem } from "./AltListItem";
+
+const countries = ["England", "Wales", "Scotland", "Northern Ireland"];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <List>
+        {countries.map((country, index) => (
+          <StyledListItem key={index} alt={Boolean(index % 2)}>
+            {country}
+          </StyledListItem>
+        ))}
+      </List>
+
+      <List>
+        {countries.map((country, index) => (
+          <AltListItem key={index} alt={Boolean(index % 2)}>
+            {country}
+          </AltListItem>
+        ))}
+      </List>
+    </>
   );
 }
 
